@@ -30,6 +30,7 @@ public class AltaActivity extends FragmentActivity {
 
     private Spinner sp;
     private TextView tvIngresoGasto;
+    private TextView tvTitulo;
     private ArrayList<String> lista;
     private Context mContext;
 
@@ -95,16 +96,20 @@ public class AltaActivity extends FragmentActivity {
         int tipo = new Integer(strTipo).intValue();
 
 
+        // cambiar el titulo de la actividad
+        tvTitulo = (TextView)findViewById(R.id.tvTitulo);
+        if (tipo == 0) {
+            tvTitulo.setText("Nuevo Ingreso");
+        } else {
+            tvTitulo.setText("Nuevo Gasto");
+        }
+
         // Rellenar el spinner
         sp = (Spinner)findViewById(R.id.spnCateg);
 
         CuentasDBHelper db = new CuentasDBHelper(this);
 
         lista = db.getAllCateg(tipo);
-        /*
-        String[] arrayLista = new String[lista.size()];
-        lista.toArray(arrayLista);
-        */
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(mContext, android.R.layout.simple_spinner_item, lista);
         adapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
@@ -130,6 +135,8 @@ public class AltaActivity extends FragmentActivity {
         btnHora.setText(hour + ":" + minute);
 
 
+        // recoger los datos y rellenar en la base de datos
+        
 
     } // fin onCreate
 
