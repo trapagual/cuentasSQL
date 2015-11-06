@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:orientation="vertical"
+    tools:context="es.perroverde.ejemplos.cuentassql.AltaActivity">
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvMes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_span="2"
+            android:layout_weight="100"
+            android:background="@drawable/celda_cab_resumen"
+            android:gravity="center"
+            android:padding="5sp"
+            android:text="Nuevo Ingreso"
+            android:textColor="#3240ab"
+            android:textSize="@dimen/txtGrande"
+            android:textStyle="bold" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:gravity="right"
+            android:layout_marginRight="20sp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Importe:"
+            android:id="@+id/tvIngresoGasto" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal|numberSigned"
+            android:id="@+id/etImporte"
+            android:layout_weight="50"
+            android:editable="true"
+            android:enabled="true"
+            android:gravity="right"
+            android:hint="9.999,99"
+            android:ems="10"
+            android:singleLine="true" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:gravity="right"
+            android:layout_marginRight="20sp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Categoría:"
+             />
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:id="@+id/spnCateg" />
+
+    </TableRow>
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:gravity="left"
+            android:layout_marginRight="20sp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Descripción:"
+            />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:lines = "3"
+            android:id="@+id/etDescripcion"
+            android:layout_gravity="center_horizontal" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15/12/2015"
+            android:id="@+id/btnFecha"
+            android:onClick="showDatePickerDialog"
+            android:layout_weight="50" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12:15"
+            android:id="@+id/btnHora"
+            android:onClick="showTimePickerDialog"
+            android:layout_weight="50" />
+
+    </TableRow>
+
+
+</LinearLayout>

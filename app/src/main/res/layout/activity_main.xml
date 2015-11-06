@@ -1,0 +1,163 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TableLayout android:id="@+id/tblResumen"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TableRow android:id="@+id/fila1Resumen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"	>
+
+            <TextView
+                android:id="@+id/tvMes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_span="2"
+                android:layout_weight="100"
+                android:background="@drawable/celda_cab_resumen"
+                android:gravity="center"
+                android:padding="5sp"
+                android:text="Noviembre"
+                android:textColor="#3240ab"
+                android:textSize="@dimen/txtGrande"
+                android:textStyle="bold" />
+
+        </TableRow>
+        <TableRow android:id="@+id/fila2Resumen"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:background="@drawable/celda"
+                android:gravity="right"
+                android:paddingBottom="5sp"
+                android:paddingLeft="5sp"
+                android:paddingRight="10sp"
+                android:paddingTop="5sp"
+                android:text="Ingresos" />
+
+            <TextView
+                android:background="@drawable/celda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:gravity="right"
+                android:textColor="#286E2B"
+                android:paddingBottom="5sp"
+                android:paddingLeft="5sp"
+                android:paddingRight="20sp"
+                android:paddingTop="5sp"
+                android:text="23.456,25"
+                android:id ="@+id/tvIngresos"/>
+        </TableRow>
+
+        <TableRow android:id="@+id/fila3Resumen"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:background="@drawable/celda"
+                android:gravity="right"
+                android:paddingBottom="5sp"
+                android:paddingLeft="5sp"
+                android:paddingRight="10sp"
+                android:paddingTop="5sp"
+                android:text="Gastos:" />
+
+            <TextView
+                android:background="@drawable/celda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:gravity="right"
+                android:textColor="#DF0101"
+                android:paddingBottom="5sp"
+                android:paddingLeft="5sp"
+                android:paddingRight="20sp"
+                android:paddingTop="5sp"
+                android:id ="@+id/tvGastos"
+                android:text="1.234,25"/>
+        </TableRow>
+
+        <TableRow android:id="@+id/filaSaldoResumen"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:background="@drawable/celda_cab_resumen"
+                android:gravity="right"
+                android:paddingBottom="5sp"
+                android:paddingLeft="5sp"
+                android:paddingRight="10sp"
+                android:paddingTop="5sp"
+                android:text="SALDO:"
+                android:textColor="#3240ab"
+                android:textSize="@dimen/txtGrande"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:background="@drawable/celda_cab_resumen"
+                android:gravity="right"
+                android:paddingBottom="5sp"
+                android:paddingLeft="5sp"
+                android:paddingRight="20sp"
+                android:paddingTop="5sp"
+
+                android:textColor="#DF0101"
+                android:textSize="@dimen/txtGrande"
+                android:textStyle="bold"
+                android:text="34,25"
+                android:id="@+id/tvSaldo"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="Nuevo Ingreso"
+            android:drawableLeft="@drawable/ic_plus_icon"
+            android:id="@+id/btnIngreso" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="Nuevo Gasto"
+            android:drawableRight="@drawable/ic_minus_icon"
+            android:id="@+id/btnGasto" />
+    </LinearLayout>
+
+
+
+</LinearLayout>
