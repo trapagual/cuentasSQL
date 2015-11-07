@@ -1,11 +1,13 @@
 package es.perroverde.ejemplos.cuentassql;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -21,6 +23,7 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -39,6 +42,9 @@ public class AltaActivity extends FragmentActivity {
 
     private static Button btnFechaS;
     private static Button btnHoraS;
+
+    private int tipo;
+
 
     public static class DatePickerFragment extends DialogFragment
             implements DatePickerDialog.OnDateSetListener {
@@ -93,7 +99,7 @@ public class AltaActivity extends FragmentActivity {
         // recogemos el intent para sacarle el extra
         Intent intent = getIntent();
         String strTipo = intent.getStringExtra("tipo");
-        int tipo = new Integer(strTipo).intValue();
+        tipo = new Integer(strTipo).intValue();
 
 
         // cambiar el titulo de la actividad
@@ -136,8 +142,9 @@ public class AltaActivity extends FragmentActivity {
 
 
         // recoger los datos y rellenar en la base de datos
-        
+        // se hace en doAltaIngresoGasto()
 
+        db.close();
     } // fin onCreate
 
     // onClick callback para los botones de mostrar los dialogos de fecha y hora
@@ -149,4 +156,32 @@ public class AltaActivity extends FragmentActivity {
         DialogFragment newFragment = new TimePickerFragment();
         newFragment.show(getFragmentManager(), "timePicker");
     }
+
+    public void doAltaIngresoGasto(View v) {
+        CuentasDBHelper db = new CuentasDBHelper(this);
+        boolean res = db.altaIngresoGasto(tipo);
+        if (res) {
+            if (tipo == 0) { // ingreso
+                Toast.makeText(this, "Ingreso grabado Ok", Toast.LENGTH_SHORT);
+            } else {
+                Toast.makeText(this, "Gasto grabado Ok", Toast.LENGTH_SHORT);
+            }
+        } else {
+                showDialog();
+        }
+    }
+
+
+    public void doPositiveClick() {
+        // no hago nada a ver que pasa
+        // lo cierra correctamente OK
+    }
+
+    void showDialog() {
+        DialogFragment newFragment = AlertFragment.newInstance(
+                R.string.alert_dialog_title,
+                R.string.alert_dialog_message);
+        newFragment.show(getFragmentManager(), "¡Cuidado!");
+    }
+
 }

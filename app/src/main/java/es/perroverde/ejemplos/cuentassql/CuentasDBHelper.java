@@ -185,4 +185,13 @@ public class CuentasDBHelper extends SQLiteOpenHelper {
         }
     }
 
+    /**
+     * Graba un ingreso o un gasto, segun el parametro tipo
+     * @param tipo si 0, es un ingreso, si no, es un gasto
+     * @return true si ha completado correctamente la operacion, false si no
+     */
+    public boolean altaIngresoGasto(int tipo) {
+        return false;
+    }
+
 }

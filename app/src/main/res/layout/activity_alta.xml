@@ -126,5 +126,16 @@
 
     </TableRow>
 
-
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Grabar"
+        android:id="@+id/btnAltaIngresoGasto"
+        android:onClick="doAltaIngresoGasto"
+        android:layout_weight="100" />
+    </TableRow>
 </LinearLayout>
