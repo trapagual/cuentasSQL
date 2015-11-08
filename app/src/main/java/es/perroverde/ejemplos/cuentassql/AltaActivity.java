@@ -1,20 +1,13 @@
 package es.perroverde.ejemplos.cuentassql;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -27,7 +20,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
+
+import es.perroverde.ejemplos.cuentassql.modelo.IngresoGasto;
 
 public class AltaActivity extends FragmentActivity {
 
@@ -129,7 +123,6 @@ public class AltaActivity extends FragmentActivity {
         btnHoraS = (Button)findViewById(R.id.btnHora);
 
         // al arrancar mostrar la fecha y hora actuales en los botones
-        // Use the current date as the default date in the picker
         final Calendar c = Calendar.getInstance();
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH);
@@ -158,6 +151,10 @@ public class AltaActivity extends FragmentActivity {
     }
 
     public void doAltaIngresoGasto(View v) {
+        // rellenar el objeto del modelo a partir de los datos del formulario
+        IngresoGasto ig = new IngresoGasto();
+
+
         CuentasDBHelper db = new CuentasDBHelper(this);
         boolean res = db.altaIngresoGasto(tipo);
         if (res) {
@@ -169,6 +166,8 @@ public class AltaActivity extends FragmentActivity {
         } else {
                 showDialog();
         }
+        // al escribir hay que cerrar la b.d.
+        db.close();
     }
 
 

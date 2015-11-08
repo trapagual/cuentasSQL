@@ -191,6 +191,14 @@ public class CuentasDBHelper extends SQLiteOpenHelper {
      * @return true si ha completado correctamente la operacion, false si no
      */
     public boolean altaIngresoGasto(int tipo) {
+
+        // obtener una b.d. en modo escritura
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // la SQL de insercion
+        String SQL = "INSERT INTO `movimientos` VALUES " +
+                        "(1,'Compra bicicleta','2015-08-01 18:37:43',1,5,2,'Bicicleta para cumpleaños del Decatlon',125.45)";
+
         return false;
     }
 

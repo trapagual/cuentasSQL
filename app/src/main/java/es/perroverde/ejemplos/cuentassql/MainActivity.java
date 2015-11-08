@@ -41,6 +41,8 @@ public class MainActivity extends Activity {
 
         // obtener b.d. escribible para que la cree automaticamente si no existe
         SQLiteDatabase db = dbh.getWritableDatabase();
+        // cerramos la b.d. en modo escritura
+        db.close();
 
         // buscar el mes y los resumenes para la tabla resumen
         Date ahora = new Date();
